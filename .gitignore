@@ -13,6 +13,9 @@ __pycache__/
 # Logs
 *.log
 
+# 安装包
+*.zip
+
 # IDE
 .vscode/
 .idea/
