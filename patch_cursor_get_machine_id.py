@@ -40,7 +40,6 @@ def get_cursor_paths() -> Tuple[str, str]:
         OSError: 当找不到有效路径或系统不支持时抛出
     """
     system = platform.system()
-
     paths_map = {
         "Darwin": {
             "base": "/Applications/Cursor.app/Contents/Resources/app",
@@ -48,8 +47,10 @@ def get_cursor_paths() -> Tuple[str, str]:
             "main": "out/main.js",
         },
         "Windows": {
+            # C:\Users\69599\AppData\Local\Programs\cursor
+           
             "base": os.path.join(
-                os.getenv("USERAPPPATH") or (os.getenv("LOCALAPPDATA", ""), "Programs", "Cursor", "resources", "app")
+                os.getenv("LOCALAPPDATA", ""), "Programs", "Cursor","resources","app"
             ),
             "package": "package.json",
             "main": "out/main.js",

@@ -20,7 +20,7 @@ class EmailVerificationHandler:
         self.protocol = Config().get_protocol() or 'POP3'
         self.account = account
 
-    def get_verification_code(self, max_retries=5, retry_interval=60):
+    def get_verification_code(self, max_retries=2, retry_interval=2):
         """
         获取验证码，带有重试机制。
 

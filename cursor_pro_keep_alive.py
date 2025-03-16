@@ -243,6 +243,7 @@ def sign_up_account(browser, tab):
         if tab.ele("@name=password"):
             logging.info("正在设置密码...")
             tab.ele("@name=password").input(password)
+            print("密码为：",password)
             time.sleep(random.uniform(1, 3))
 
             logging.info("提交密码...")
@@ -266,10 +267,9 @@ def sign_up_account(browser, tab):
                 break
             if tab.ele("@data-index=0"):
                 logging.info("正在获取邮箱验证码...")
-                code = email_handler.get_verification_code()
-                if not code:
-                    logging.error("获取验证码失败")
-                    return False
+                # code = email_handler.get_verification_code()
+                # if not code:
+                code = input("请手动输入验证码: ")
 
                 logging.info(f"成功获取验证码: {code}")
                 logging.info("正在输入验证码...")
